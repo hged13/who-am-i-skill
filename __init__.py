@@ -4,6 +4,10 @@ from mycroft import MycroftSkill, intent_file_handler
 class WhoAmI(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
+    
+    
+    def initialize(self):
+        color = blue
 
     @intent_file_handler('i.am.who.intent')
     def handle_i_am_who(self, message):
