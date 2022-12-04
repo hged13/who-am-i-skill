@@ -7,7 +7,7 @@ class WhoAmI(MycroftSkill):
     
     
     def initialize(self):
-        self.setcolor()
+        answer = self.setcolor()
         
 
     @intent_file_handler('i.am.who.intent')
