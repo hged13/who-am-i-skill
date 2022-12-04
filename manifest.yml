@@ -9,14 +9,15 @@
   python:
      - requests
      - pandas
+     - librosa
+     - numpy
+     - sklearn
 #
 #   # Install packages with the system package manager
 #   # This searches for the provided executable and uses the package names
-   system:
+   #system:
 #     # For simple packages, this is all that is necessary
-     all: librosa
-     all: numpy
-     all: sklearn
+  
 #
 #     # If the package has a certain name on a different platform:
 #     pkcon: pianobar libpiano-dev  # For the mycroft platform
