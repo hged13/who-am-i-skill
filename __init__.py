@@ -12,7 +12,7 @@ class WhoAmI(MycroftSkill):
         model = self.build_model()
 
     def build_model(self):
-        file = self.open('/home/pi/.config/mycroft/skills/NewUserCreation/wav.csv', 'r')
+        file = open('/home/pi/.config/mycroft/skills/NewUserCreation/wav.csv', 'r')
         df = pd.read_csv(file)
         return df
 
