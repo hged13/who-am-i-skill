@@ -7,12 +7,15 @@ class WhoAmI(MycroftSkill):
     
     
     def initialize(self):
-        color = blue
+        self.setcolor()
+        
 
     @intent_file_handler('i.am.who.intent')
     def handle_i_am_who(self, message):
         self.speak_dialog('i.am.who')
-
+    
+    def setcolor(self):
+        return true
 
 def create_skill():
     return WhoAmI()
