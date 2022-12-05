@@ -2,7 +2,6 @@ import numpy as np
 from mycroft import MycroftSkill, intent_file_handler
 import pandas as pd
 import librosa
-import librosa.display
 from sklearn.neighbors import KNeighborsClassifier
 
 
