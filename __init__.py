@@ -14,7 +14,7 @@ class WhoAmI(MycroftSkill):
         model = self.build_model()
 
     def build_model(self):
-        file = self.open('/home/pi/.config/mycroft/skills/NewUserCreation/wav.csv', 'r')
+        file = open('/home/pi/.config/mycroft/skills/NewUserCreation/wav.csv', 'r')
         df = pd.read_csv(file)
         audio_data, sampling_rate = librosa.load(df.iloc[0][0])
         mfccs = librosa.feature.mfcc(y=audio_data, sr=sampling_rate, n_mfcc=40)
