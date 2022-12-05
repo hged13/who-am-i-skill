@@ -1,6 +1,5 @@
 from mycroft import MycroftSkill, intent_file_handler
 import pandas as pd
-from sklearn.neighbors import KNeighborsClassifier
 
 
 
