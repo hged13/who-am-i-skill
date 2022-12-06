@@ -2,8 +2,7 @@ from mycroft import MycroftSkill, intent_file_handler
 import pandas as pd
 import numba
 import numpy as np
-import numpy.core.multiarray
-import librosa
+import tensorflow as tf
 
 
 
