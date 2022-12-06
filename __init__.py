@@ -1,6 +1,7 @@
 from mycroft import MycroftSkill, intent_file_handler
 import pandas as pd
 import numba
+import numpy
 
 
 
