@@ -1,7 +1,8 @@
 from mycroft import MycroftSkill, intent_file_handler
 import pandas as pd
 import numba
-import numpy
+import numpy as np
+import numpy.core.multiarray
 
 
 
