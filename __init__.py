@@ -17,6 +17,8 @@ class WhoAmI(MycroftSkill):
     def handle_i_am_who(self, message):
         self.speak_dialog('i.am.who')
         model = self.build_model()
+        self.speak_dialog(model)
+
 
     def build_model(self):
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/wav.csv', 'r')
@@ -42,6 +44,7 @@ class WhoAmI(MycroftSkill):
         dtc.fit(X_train, y_train)
 
         y_pred = dtc.predict(X_test)
+        return y_pred
             
 
     def features_extractor(self,file):
