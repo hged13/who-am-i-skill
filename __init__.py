@@ -24,14 +24,13 @@ class WhoAmI(MycroftSkill):
         self.speak_dialog("YOU DID IT GIRL")
     
     def get_prediction_sample(self, model):
-        name = you
-        rec = self.start_recording(name)
+        rec = self.start_recording()
         features = features_extractor(rec)
         answer = model.predict(features)
     
-    def start_recording(self,name):
+    def start_recording(self):
         dir = self.file_system.path
-        namelite = name + str(num) + ".wav"
+        namelite =  "hannah.wav"
         filename = dir + "/" + namelite
         frames = 1024
         FORMAT = pyaudio.paInt16
