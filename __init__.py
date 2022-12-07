@@ -4,6 +4,9 @@ import numba
 import numpy as np
 import librosa
 from sklearn.neighbors import KNeighborsClassifier
+import wave 
+import pyaudio
+import csv
 
 
 
@@ -17,7 +20,47 @@ class WhoAmI(MycroftSkill):
     def handle_i_am_who(self, message):
         self.speak_dialog('i.am.who')
         model = self.build_model()
+        pred = get_prediction_sample(model)
         self.speak_dialog("YOU DID IT GIRL")
+    
+    def get_prediction_sample(self, model):
+        rec = self.start_recording(name, recording)
+        features = features_extractor(rec)
+        answer = model.predict(features)
+    
+    def start_recording(self,name):
+        dir = self.file_system.path
+        namelite = name + str(num) + ".wav"
+        filename = dir + "/" + namelite
+        frames = 1024
+        FORMAT = pyaudio.paInt16
+        channels = 1
+        sample_rate = 22050
+        record_seconds = 7
+        p = pyaudio.PyAudio()
+        stream = p.open(format=FORMAT,
+                    channels=channels,
+                    rate=sample_rate,
+                    input=True,
+                    output=True,
+                    frames_per_buffer=frames)
+        frames2 = []
+        self.speak_dialog("Recording...")
+        for i in range(int(44100 / frames * record_seconds)):
+            data = stream.read(frames)
+            frames2.append(data)
+        self.speak_dialog("Finished recording.")
+        stream.stop_stream()
+        stream.close()
+        p.terminate()
+        wf = wave.open(filename, "wb")
+        wf.setnchannels(channels)
+        wf.setsampwidth(p.get_sample_size(FORMAT))
+        wf.setframerate(sample_rate)
+        wf.writeframes(b"".join(frames2))
+        wf.close()
+        return filename
+    
 
 
     def build_model(self):
