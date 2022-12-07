@@ -87,7 +87,7 @@ class WhoAmI(MycroftSkill):
         dtc.fit(X_train, y_train)
 
         y_pred = dtc.predict(X_test)
-        return y_pred
+        return dtc
             
 
     def features_extractor(self,file):
