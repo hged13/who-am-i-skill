@@ -38,7 +38,7 @@ class WhoAmI(MycroftSkill):
         from sklearn.model_selection import train_test_split
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
 
-        dtc = KNeighborsClassifier(n_neighbors=4)
+        dtc = KNeighborsClassifier(n_neighbors=1)
         dtc.fit(X_train, y_train)
 
         y_pred = dtc.predict(X_test)
