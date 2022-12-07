@@ -24,7 +24,7 @@ class WhoAmI(MycroftSkill):
         self.speak_dialog("YOU DID IT GIRL")
     
     def get_prediction_sample(self, model):
-        rec = self.start_recording(name, recording)
+        rec = self.start_recording(name)
         features = features_extractor(rec)
         answer = model.predict(features)
     
