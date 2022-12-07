@@ -17,7 +17,7 @@ class WhoAmI(MycroftSkill):
     def handle_i_am_who(self, message):
         self.speak_dialog('i.am.who')
         model = self.build_model()
-        self.speak_dialog(model)
+        self.speak_dialog("YOU DID IT GIRL")
 
 
     def build_model(self):
