@@ -25,7 +25,7 @@ class WhoAmI(MycroftSkill):
     
     def get_prediction_sample(self, model):
         rec = self.start_recording()
-        features = features_extractor(rec)
+        features = self.features_extractor(rec)
         answer = model.predict(features)
     
     def start_recording(self):
