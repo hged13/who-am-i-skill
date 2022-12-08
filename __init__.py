@@ -99,7 +99,7 @@ class WhoAmI(MycroftSkill):
         writer.writerow(y_train)
 
 
-        dtc = KNeighborsClassifier(n_neighbors=3)
+        dtc = KNeighborsClassifier(n_neighbors=1)
         dtc.fit(X_train, y_train)
 
         y_pred = dtc.predict(X_test)
