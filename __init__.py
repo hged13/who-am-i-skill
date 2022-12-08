@@ -88,6 +88,12 @@ class WhoAmI(MycroftSkill):
 
         X = np.array(extracted_features_df['audio'].tolist())
         y = np.array(extracted_features_df['speaker'].tolist())
+        
+        file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
+        writer = csv.writer(file)
+        writer.writerow(X)
+        writer.writerow(y)
+
 
         from sklearn.model_selection import train_test_split
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
