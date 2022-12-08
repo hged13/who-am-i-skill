@@ -21,7 +21,7 @@ class WhoAmI(MycroftSkill):
         self.speak_dialog('i.am.who')
         model = self.build_model()
         pred = self.get_prediction_sample(model)
-        predic = pred[0]
+        predic = pred[1]
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
         writer = csv.writer(file)
         writer.writerow(pred)
@@ -90,7 +90,7 @@ class WhoAmI(MycroftSkill):
         y = np.array(extracted_features_df['speaker'].tolist())
 
         from sklearn.model_selection import train_test_split
-        X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1, train_size=.75, test_size=.25)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
         dtc = KNeighborsClassifier(n_neighbors=3)
         dtc.fit(X_train, y_train)
