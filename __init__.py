@@ -35,6 +35,7 @@ class WhoAmI(MycroftSkill):
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
         writer = csv.writer(file)
         writer.writerow(answer)
+        return answer
     
     def start_recording(self):
         dir = self.file_system.path
