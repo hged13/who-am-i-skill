@@ -51,7 +51,7 @@ class WhoAmI(MycroftSkill):
         writer = csv.writer(file)
         writer.writeline(name2)
         name3 = str(name2)
-        walka = self.df.loc[self.df['name'.eq(name3), 'playlist']
+        walka = self.df.loc[self.df['name'].eq(name3), 'playlist']
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
         writer.writerow(walka)
         return walka
