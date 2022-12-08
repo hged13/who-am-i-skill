@@ -21,8 +21,9 @@ class WhoAmI(MycroftSkill):
         self.speak_dialog('i.am.who')
         model = self.build_model()
         pred = self.get_prediction_sample(model)
-        self.log.info(pred)
-        self.speak_dialog(pred)
+        predic = pred[0]
+        self.log.info(preic)
+        self.speak_dialog(predic)
     
     def get_prediction_sample(self, model):
         rec = self.start_recording()
