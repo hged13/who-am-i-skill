@@ -17,7 +17,7 @@ class WhoAmI(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
         self.model = KNeighborsClassifier(n_neighbors=4)
-        self.df = pd.read_csv("/home/pi/.config/mycroft/skills/NewUserCreation/log.csv")
+        self.df = pd.read_csv("/home/pi/.config/mycroft/skills/NewUserCreation/log.csv", header=0)
     
     def initialize(self):
        self.model = self.build_model()
@@ -32,7 +32,7 @@ class WhoAmI(MycroftSkill):
         writer.writerow(pred)
         plist = self.get_playlist(predic)
         self.speak_dialog(predic)
-        pp = plist.iat[0]
+        pp = plist.Playlist.iat[0]
         self.speak_dialog(plist)
     
     def get_prediction_sample(self):
