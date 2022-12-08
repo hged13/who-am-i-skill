@@ -33,7 +33,7 @@ class WhoAmI(MycroftSkill):
         self.speak_dialog(predic)
         self.speak_dialog(pl)
         self.bus.emit(Message("recognizer_loop:utterance",  
-                              {'utterances': ["Play Pandora"],  
+                              {'utterances': ["Play @pl on Pandora"],  
                                'lang': 'en-us'}))  
     
     def get_prediction_sample(self):
@@ -45,7 +45,7 @@ class WhoAmI(MycroftSkill):
     
     def get_playlist(self,name2):
         name3 = str(name2)
-        walka = self.df.loc[self.df['name'].eq(name3), 'playlist']
+        walka = self.df.loc[self.df['name'].eq(name3), 'artist']
         return walka
     
     
