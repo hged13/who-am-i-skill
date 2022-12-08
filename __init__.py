@@ -96,7 +96,7 @@ class WhoAmI(MycroftSkill):
         
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
         writer = csv.writer(file)
-        writer.writerow(Y_train)
+        writer.writerow(y_train)
 
 
         dtc = KNeighborsClassifier(n_neighbors=3)
