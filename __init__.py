@@ -32,7 +32,8 @@ class WhoAmI(MycroftSkill):
         writer.writerow(pred)
         plist = self.get_playlist(predic)
         self.speak_dialog(predic)
-        pp = plist.to_numpy
+        pp = plist.to_string
+        self.speak_dialog(pp)
         pl= pp[0]
         self.speak_dialog(pl)
     
