@@ -24,7 +24,7 @@ class WhoAmI(MycroftSkill):
         predic = pred[0]
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
         writer = csv.writer(file)
-        writer.writerow(predic)
+        writer.writerow(pred)
         self.speak_dialog(predic)
     
     def get_prediction_sample(self, model):
