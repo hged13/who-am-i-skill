@@ -10,18 +10,20 @@ import wave
 import pyaudio
 import csv
 
-
+model = KNeighborsClassifier(n_neighbors=3)
 
 
 
 class WhoAmI(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
+    
+    def initialize(self):
+        model = self.build_model()
 
     @intent_file_handler('i.am.who.intent')
     def handle_i_am_who(self, message):
         self.speak_dialog('i.am.who')
-        model = self.build_model()
         pred = self.get_prediction_sample(model)
         predic = pred[0]
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
