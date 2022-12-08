@@ -16,6 +16,7 @@ import csv
 class WhoAmI(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
+        self.model = KNeighborsClassifier(n_neighbors=4)
     
     def initialize(self):
        self.model = self.build_model()
