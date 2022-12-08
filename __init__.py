@@ -17,7 +17,7 @@ class WhoAmI(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
         self.model = KNeighborsClassifier(n_neighbors=4)
-        self.df = pd.read_csv(open('/home/pi/.config/mycroft/skills/NewUserCreation/log.csv', 'r')
+        self.df = pd.read_csv(open('/home/pi/.config/mycroft/skills/NewUserCreation/log.csv', 'r'))
     
     def initialize(self):
        self.model = self.build_model()
