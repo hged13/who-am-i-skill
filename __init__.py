@@ -96,9 +96,6 @@ class WhoAmI(MycroftSkill):
         dtc.fit(X_train, y_train)
 
         y_pred = dtc.predict(X_test)
-        file2 = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
-        writer = csv.writer(file2)
-        writer.writerow(y_pred)
         return dtc
             
 
