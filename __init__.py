@@ -32,6 +32,9 @@ class WhoAmI(MycroftSkill):
         features = self.features_extractor(rec)
         features = features.reshape(1,-1)
         answer = model.predict(features)
+        file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
+        writer = csv.writer(file)
+        writer.writerow(answer)
     
     def start_recording(self):
         dir = self.file_system.path
