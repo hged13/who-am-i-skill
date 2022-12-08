@@ -27,13 +27,8 @@ class WhoAmI(MycroftSkill):
         self.speak_dialog('i.am.who')
         pred = self.get_prediction_sample()
         predic = str(pred[0])
-        file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
-        writer = csv.writer(file)
-        writer.writerow(pred)
         plist = self.get_playlist(predic)
         self.speak_dialog(predic)
-        writer.writerow(plist)
-        pl= pp[0]
         self.speak_dialog(pl)
     
     def get_prediction_sample(self):
@@ -41,18 +36,11 @@ class WhoAmI(MycroftSkill):
         features = self.features_extractor(rec)
         features = features.reshape(1,-1)
         answer = self.model.predict(features)
-        file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
-        writer = csv.writer(file)
-        writer.writerow(answer)
         return answer
     
     def get_playlist(self,name2):
-        file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
-        writer = csv.writer(file)
         name3 = str(name2)
         walka = self.df.loc[self.df['name'].eq(name3), 'playlist']
-        file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
-        writer.writerow(walka)
         return walka
     
     
