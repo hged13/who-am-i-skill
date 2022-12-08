@@ -98,11 +98,13 @@ class WhoAmI(MycroftSkill):
         
         
 
-        dtc = KNeighborsClassifier(n_neighbors=1)
+        dtc = KNeighborsClassifier(n_neighbors=4)
         dtc.fit(X_train, y_train)
 
         y_pred = dtc.predict(X_test)
-        acc = metrics.accuracy_score(y_test, y_pred)
+        ac = metrics.accuracy_score(y_test, y_pred)
+        acc = []
+        acc.append(ac)
         
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
         writer = csv.writer(file)
