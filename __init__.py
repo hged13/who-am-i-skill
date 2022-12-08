@@ -33,7 +33,7 @@ class WhoAmI(MycroftSkill):
         self.speak_dialog(predic)
         self.speak_dialog(pl)
         self.bus.emit(Message("recognizer_loop:utterance",  
-                              {'utterances': ["Play @pl on Pandora"],  
+                              {'utterances': ["Play" + pl+ "on Pandora"],  
                                'lang': 'en-us'}))  
     
     def get_prediction_sample(self):
