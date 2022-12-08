@@ -26,7 +26,7 @@ class WhoAmI(MycroftSkill):
     def handle_i_am_who(self, message):
         self.speak_dialog('i.am.who')
         pred = self.get_prediction_sample()
-        predic = pred[0]
+        predic = str(pred[0])
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
         writer = csv.writer(file)
         writer.writerow(pred)
