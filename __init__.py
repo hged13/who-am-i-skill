@@ -17,7 +17,7 @@ class WhoAmI(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
         self.model = KNeighborsClassifier(n_neighbors=4)
-        self.df = pd.read_csv(open('/home/pi/.config/mycroft/skills/NewUserCreation/log.csv', 'r'))
+        self.df = pd.read_csv('new.csv', names=['name', 'playlist', 'artist')
     
     def initialize(self):
        self.model = self.build_model()
@@ -46,8 +46,8 @@ class WhoAmI(MycroftSkill):
         writer.writerow(answer)
         return answer
     
-    def get_playlist(self,name):
-        walka = self.df.loc[self.df[' Playlist'] == name]
+    def get_playlist(self,name2):
+        walka = self.df.loc[(self.df['name'] == name2)]
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
         writer = csv.writer(file)
         writer.writerow(walka)
