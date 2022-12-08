@@ -48,7 +48,7 @@ class WhoAmI(MycroftSkill):
         return answer
     
     def get_playlist(self,name):
-        walka = self.df.loc[(df['Name'] == name)]
+        walka = self.df.loc[(self.df['Name'] == name)]
         return walka
     
     
