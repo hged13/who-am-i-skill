@@ -10,7 +10,6 @@ import wave
 import pyaudio
 import csv
 
-model = KNeighborsClassifier(n_neighbors=3)
 
 
 
