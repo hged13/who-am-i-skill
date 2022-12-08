@@ -18,7 +18,7 @@ class WhoAmI(MycroftSkill):
         MycroftSkill.__init__(self)
     
     def initialize(self):
-        model = self.build_model()
+       self.model = self.build_model()
 
     @intent_file_handler('i.am.who.intent')
     def handle_i_am_who(self, message):
@@ -30,11 +30,11 @@ class WhoAmI(MycroftSkill):
         writer.writerow(pred)
         self.speak_dialog(predic)
     
-    def get_prediction_sample(self, model):
+    def get_prediction_sample(self):
         rec = self.start_recording()
         features = self.features_extractor(rec)
         features = features.reshape(1,-1)
-        answer = model.predict(features)
+        answer = self.model.predict(features)
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
         writer = csv.writer(file)
         writer.writerow(answer)
