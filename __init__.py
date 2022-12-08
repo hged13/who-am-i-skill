@@ -5,6 +5,7 @@ import numpy as np
 import librosa
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import metrics
+from mycroft.messagebus.message import Message
 
 import wave 
 import pyaudio
@@ -31,6 +32,9 @@ class WhoAmI(MycroftSkill):
         pl = plist[0]
         self.speak_dialog(predic)
         self.speak_dialog(pl)
+        self.bus.emit(Message("recognizer_loop:utterance",  
+                              {'utterances': ["Play Pandora"],  
+                               'lang': 'en-us'}))  
     
     def get_prediction_sample(self):
         rec = self.start_recording()
