@@ -47,10 +47,12 @@ class WhoAmI(MycroftSkill):
         return answer
     
     def get_playlist(self,name2):
+        file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
+        writer = csv.writer(file)
+        writer.writerow(name2)
         name3 = str(name2)
         walka = self.df.loc[(self.df['name'] == name3)]
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
-        writer = csv.writer(file)
         writer.writerow(walka)
         return walka
     
