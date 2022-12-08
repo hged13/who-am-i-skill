@@ -29,7 +29,7 @@ class WhoAmI(MycroftSkill):
         predic = str(pred[0])
         plist = self.get_playlist(predic)
         self.speak_dialog(predic)
-        self.speak_dialog(pl)
+        self.speak_dialog(plist)
     
     def get_prediction_sample(self):
         rec = self.start_recording()
