@@ -82,7 +82,7 @@ class WhoAmI(MycroftSkill):
         y = np.array(extracted_features_df['speaker'].tolist())
 
         from sklearn.model_selection import train_test_split
-        X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1, test_size=.25)
 
         dtc = KNeighborsClassifier(n_neighbors=3)
         dtc.fit(X_train, y_train)
