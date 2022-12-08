@@ -4,6 +4,8 @@ import numba
 import numpy as np
 import librosa
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn import metrics
+
 import wave 
 import pyaudio
 import csv
@@ -94,15 +96,20 @@ class WhoAmI(MycroftSkill):
         from sklearn.model_selection import train_test_split
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
         
-        file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
-        writer = csv.writer(file)
-        writer.writerow(y_train)
-
+        
 
         dtc = KNeighborsClassifier(n_neighbors=1)
         dtc.fit(X_train, y_train)
 
         y_pred = dtc.predict(X_test)
+        acc = metrics.accuracy_score(y_test, y_pred)
+        
+        file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
+        writer = csv.writer(file)
+        writer.writerow(acc)
+
+
+        
         return dtc
             
 
