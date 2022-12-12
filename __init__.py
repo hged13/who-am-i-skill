@@ -53,7 +53,7 @@ class WhoAmI(MycroftSkill):
     def get_playlist(self,name2):
         name3 = str(name2)
         self.artist = self.df.loc[self.df['name'].eq(name3), 'artist']
-        self.plist = self.df.loc[self.df['name'].eq(name3), 'playlist']
+        self.playlist = self.df.loc[self.df['name'].eq(name3), 'playlist']
         
     
     
