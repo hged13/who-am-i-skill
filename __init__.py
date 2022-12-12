@@ -61,8 +61,8 @@ class WhoAmI(MycroftSkill):
         name3 = str(name2)
         artist1 = self.df.loc[self.df['name'].eq(name3), 'artist']
         playlist1 = self.df.loc[self.df['name'].eq(name3), 'playlist']
-        self.artist = artist1[0]
-        self.playlist = playlist1[0]
+        self.artist = artist1
+        self.playlist = playlist1
         
     
     
