@@ -19,6 +19,7 @@ class WhoAmI(MycroftSkill):
         MycroftSkill.__init__(self)
         self.model = KNeighborsClassifier(n_neighbors=4)
         self.df = pd.read_csv('/home/pi/.config/mycroft/skills/NewUserCreation/log.csv', names=['name', 'playlist', 'artist'])
+        
     
     def initialize(self):
        self.model = self.build_model()
@@ -28,13 +29,19 @@ class WhoAmI(MycroftSkill):
         self.speak_dialog('i.am.who')
         pred = self.get_prediction_sample()
         predic = str(pred[0])
-        plist = self.get_playlist(predic)
-        pl = plist[0]
+        self.get_playlist(predic)
         self.speak_dialog(predic)
-        self.speak_dialog(pl)
-        self.bus.emit(Message("recognizer_loop:utterance",  
-                              {'utterances': ["play " + pl+ " radio on pandora"],  
+        
+        
+    @intent_file_handler('my.playlist.intent')
+        def my_playlist(self, message):
+            self.speak_dialog('i.am.who')
+            self.bus.emit(Message("recognizer_loop:utterance",  
+                              {'utterances': ["play " +self.playlist+ " radio on pandora"],  
                                'lang': 'en-us'}))  
+
+
+
     
     def get_prediction_sample(self):
         rec = self.start_recording()
@@ -45,8 +52,9 @@ class WhoAmI(MycroftSkill):
     
     def get_playlist(self,name2):
         name3 = str(name2)
-        walka = self.df.loc[self.df['name'].eq(name3), 'artist']
-        return walka
+        self.artist = self.df.loc[self.df['name'].eq(name3), 'artist']
+        self.plist = self.df.loc[self.df['name'].eq(name3), 'playlist']
+        
     
     
     def start_recording(self):
