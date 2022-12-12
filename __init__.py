@@ -35,12 +35,19 @@ class WhoAmI(MycroftSkill):
         
     @intent_file_handler('my.playlist.intent')
     def my_playlist(self, message):
-        self.speak_dialog('i.am.who')
+        self.speak_dialog('my.playlist')
         self.bus.emit(Message("recognizer_loop:utterance",  
-        {'utterances': ["play " +self.playlist+ " radio on pandora"],  
+        {'utterances': ["play " +self.playlist+ " on pandora"],  
                                'lang': 'en-us'}))  
 
 
+         
+    @intent_file_handler('my.radio.intent')
+    def my_radio(self, message):
+        self.speak_dialog('my.playlist')
+        self.bus.emit(Message("recognizer_loop:utterance",  
+        {'utterances': ["play " +self.artist+ "radio on pandora"],  
+                               'lang': 'en-us'}))  
 
     
     def get_prediction_sample(self):
