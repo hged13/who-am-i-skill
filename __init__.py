@@ -37,6 +37,9 @@ class WhoAmI(MycroftSkill):
     def my_playlist(self, message):
         self.speak_dialog('my.playlist')
         self.bus.emit(Message("recognizer_loop:utterance",  
+        {'utterances': ["off"],  
+                               'lang': 'en-us'}))  
+        self.bus.emit(Message("recognizer_loop:utterance",  
         {'utterances': ["play " +self.playlist+ " on pandora"],  
                                'lang': 'en-us'}))  
 
