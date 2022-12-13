@@ -33,7 +33,7 @@ class WhoAmI(MycroftSkill):
         confirm = self.get_response("Is this right?")
         if confirm == "yes":
             self.get_playlist(predic)
-        else if confirm == "No":
+        else:
             predic = self.get_response("Sorry about that. Who is this?")
 
         self.get_playlist(predic)
