@@ -36,7 +36,7 @@ class WhoAmI(MycroftSkill):
         else:
             predic = self.get_response("Sorry about that. Who is this?")
 
-        self.get_playlist(predic)
+            self.get_playlist(predic)
         
         
     @intent_file_handler('my.playlist.intent')
