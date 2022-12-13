@@ -29,8 +29,14 @@ class WhoAmI(MycroftSkill):
         self.speak_dialog('i.am.who')
         pred = self.get_prediction_sample()
         predic = str(pred[0])
-        self.get_playlist(predic)
         self.speak_dialog(predic)
+        confirm = self.get_response("Is this right?")
+        if confirm == "yes":
+            self.get_playlist(predic)
+        else if confirm == "No":
+            predic = self.get_response("Sorry about that. Who is this?")
+
+        self.get_playlist(predic)
         
         
     @intent_file_handler('my.playlist.intent')
