@@ -78,9 +78,9 @@ class WhoAmI(MycroftSkill):
         writer.writerow(artist1)
         writer.writerow(artist2)
         writer.writerow(playlist1)
-        self.artist = str(artist1.at[0])
-        self.playlist = str(playlist1.at[0])
-        self.artist2 = str(artist2.at[0])
+        self.artist = str(artist1)
+        self.playlist = str(playlist1)
+        self.artist2 = str(artist2)
         
     
     
