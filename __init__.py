@@ -46,7 +46,7 @@ class WhoAmI(MycroftSkill):
         {'utterances': ["off"],  
                                'lang': 'en-us'}))  
         self.bus.emit(Message("recognizer_loop:utterance",  
-        {'utterances': ["play " +self.playlist+ " on pandora"],  
+        {'utterances': ["play " +self.playlist+ " radio on pandora"],  
                                'lang': 'en-us'}))  
 
 
@@ -55,9 +55,15 @@ class WhoAmI(MycroftSkill):
     def my_radio(self, message):
         self.speak_dialog('my.playlist')
         self.bus.emit(Message("recognizer_loop:utterance",  
-        {'utterances': ["play " +self.artist+ "radio on pandora"],  
+        {'utterances': ["play " +self.artist+ " radio on pandora"],  
                                'lang': 'en-us'}))  
-
+                               
+    @intent_file_handler('my.artist.intent')
+    def my_radio(self, message):
+        self.speak_dialog('my.playlist')
+        self.bus.emit(Message("recognizer_loop:utterance",  
+        {'utterances': ["play " +self.artist2+ " radio on pandora"],  
+                               'lang': 'en-us'}))  
     
     def get_prediction_sample(self):
         rec = self.start_recording()
@@ -70,8 +76,10 @@ class WhoAmI(MycroftSkill):
         name3 = str(name2)
         artist1 = self.df.loc[self.df['name'].eq(name3), 'artist']
         playlist1 = self.df.loc[self.df['name'].eq(name3), 'playlist']
+        artist2 = self.df.loc[self.df['name'].eq(name3), 'playlist2']
         self.artist = str(artist1[0])
         self.playlist = str(playlist1[0])
+        self.artist2 = str(artist2[0])
         
     
     
