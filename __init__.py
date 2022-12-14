@@ -68,6 +68,7 @@ class WhoAmI(MycroftSkill):
     
     def get_playlist(self,name2):
         name3 = name2
+        self.speak_dialog(name3)
         artist1 = self.df.loc[self.df['name'].eq(name3), 'artist']
         playlist1 = self.df.loc[self.df['name'].eq(name3), 'playlist']
         artist2 = self.df.loc[self.df['name'].eq(name3), 'artist2']
