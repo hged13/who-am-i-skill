@@ -67,12 +67,13 @@ class WhoAmI(MycroftSkill):
         return answer
     
     def get_playlist(self,name2):
-        name3 = str(name2)
+        name3 = name2
         artist1 = self.df.loc[self.df['name'].eq(name3), 'artist']
         playlist1 = self.df.loc[self.df['name'].eq(name3), 'playlist']
         artist2 = self.df.loc[self.df['name'].eq(name3), 'artist2']
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
         writer = csv.writer(file)
+        writer.writerow("Test")
         writer.writerow(artist1)
         writer.writerow(artist2)
         writer.writerow(playlist1)
