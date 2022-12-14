@@ -35,7 +35,6 @@ class WhoAmI(MycroftSkill):
         
     @intent_file_handler('my.playlist.intent')
     def my_playlist(self, message):
-        self.speak_dialog("you did it")
         self.speak_dialog('my.playlist')
         self.bus.emit(Message("recognizer_loop:utterance",  
         {'utterances': ["off"],  
@@ -48,7 +47,6 @@ class WhoAmI(MycroftSkill):
          
     @intent_file_handler('my.radio.intent')
     def my_radio(self, message):
-        self.speak_dialog("you did it")
         self.speak_dialog('my.playlist')
         self.bus.emit(Message("recognizer_loop:utterance",  
         {'utterances': ["play " +self.artist+ " radio on pandora"],  
@@ -56,7 +54,6 @@ class WhoAmI(MycroftSkill):
                                
     @intent_file_handler('my.artist.intent')
     def my_radio(self, message):
-        self.speak_dialog("you did it")
         self.speak_dialog('my.playlist')
         self.bus.emit(Message("recognizer_loop:utterance",  
         {'utterances': ["play " +self.artist2+ " radio on pandora"],  
@@ -74,9 +71,9 @@ class WhoAmI(MycroftSkill):
         artist1 = self.df.loc[self.df['name'].eq(name3), 'artist']
         playlist1 = self.df.loc[self.df['name'].eq(name3), 'playlist']
         artist2 = self.df.loc[self.df['name'].eq(name3), 'artist2']
-        self.artist = str(artist1)
-        self.playlist = str(playlist1)
-        self.artist2 = str(artist2)
+        self.artist = str(artist1[0])
+        self.playlist = str(playlist1[0])
+        self.artist2 = str(artist2[0])
         
     
     
