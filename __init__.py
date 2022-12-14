@@ -69,9 +69,9 @@ class WhoAmI(MycroftSkill):
     def get_playlist(self,name2):
         name3 = name2
         self.speak_dialog(name3)
-        artist1 = self.df.loc[self.df['name'].eq(name3), 'artist']
-        playlist1 = self.df.loc[self.df['name'].eq(name3), 'playlist']
-        artist2 = self.df.loc[self.df['name'].eq(name3), 'artist2']
+        artist1 = self.df.loc[self.df['name'].eq(name3), 'artist'].to_json()
+        playlist1 = self.df.loc[self.df['name'].eq(name3), 'playlist'].to_json()
+        artist2 = self.df.loc[self.df['name'].eq(name3), 'artist2'].to_json()
         file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
         writer = csv.writer(file)
         writer.writerow(name3)
