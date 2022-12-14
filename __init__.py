@@ -71,6 +71,11 @@ class WhoAmI(MycroftSkill):
         artist1 = self.df.loc[self.df['name'].eq(name3), 'artist']
         playlist1 = self.df.loc[self.df['name'].eq(name3), 'playlist']
         artist2 = self.df.loc[self.df['name'].eq(name3), 'artist2']
+        file = open('/home/pi/.config/mycroft/skills/NewUserCreation/name.csv', 'a')
+        writer = csv.writer(file)
+        writer.writerow(artist1)
+        writer.writerow(artist2)
+        writer.writerow(playlist1)
         self.artist = str(artist1[0])
         self.playlist = str(playlist1[0])
         self.artist2 = str(artist2[0])
