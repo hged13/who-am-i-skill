@@ -43,6 +43,7 @@ class WhoAmI(MycroftSkill):
         
     @intent_file_handler('my.playlist.intent')
     def my_playlist(self, message):
+        self.speak_dialog("you did it")
         self.speak_dialog('my.playlist')
         self.bus.emit(Message("recognizer_loop:utterance",  
         {'utterances': ["off"],  
@@ -55,6 +56,7 @@ class WhoAmI(MycroftSkill):
          
     @intent_file_handler('my.radio.intent')
     def my_radio(self, message):
+        self.speak_dialog("you did it")
         self.speak_dialog('my.playlist')
         self.bus.emit(Message("recognizer_loop:utterance",  
         {'utterances': ["play " +self.artist+ " radio on pandora"],  
@@ -62,6 +64,7 @@ class WhoAmI(MycroftSkill):
                                
     @intent_file_handler('my.artist.intent')
     def my_radio(self, message):
+        self.speak_dialog("you did it")
         self.speak_dialog('my.playlist')
         self.bus.emit(Message("recognizer_loop:utterance",  
         {'utterances': ["play " +self.artist2+ " radio on pandora"],  
